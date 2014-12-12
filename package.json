@@ -31,12 +31,12 @@
     "envify-loader": "^0.1.0",
     "jest-cli": "^0.2.1",
     "jsx-loader": "^0.12.2",
-    "react": "^0.12.1",
+    "react": "^0.11.0",
     "react-tools": "^0.12.1",
     "webpack": "^1.4.13",
     "webpack-dev-server": "^1.6.6"
   },
   "peerDependencies": {
-    "react": "0.12.x"
+    "react": ">= 0.11.x"
   }
 }
