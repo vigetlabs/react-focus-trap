@@ -1,27 +1,33 @@
-/**
- * @jsx
- * A reuseable, accessible modal
- */
+/** @jsx */
 
 var Focus = require('./mixins/focus')
 var React = require('react')
 var Types = React.PropTypes
 
-var Dialog = React.createClass({
+var FocusTrap = React.createClass({
 
   mixins: [ Focus ],
 
   propTypes: {
     onExit : Types.func.isRequired,
+    role   : Types.string.isRequired
+  },
+
+  getDefaultProps() {
+    return {
+      role: "dialog"
+    }
   },
 
   render() {
+    var { role } = this.props
+
     return (
-      <div className="dialog" tabIndex="0" role="dialog" onKeyUp={ this._onKeyUp }>
+      <div className="focus-trap" tabIndex="0" role={ role } onKeyUp={ this._onKeyUp }>
 
-        <div className="dialog-blackout" aria-hidden={ true } onClick={ this.props.onExit }></div>
+        <div className="focus-trap-backdrop" aria-hidden={ true } onClick={ this.props.onExit }></div>
 
-        <section className="dialog-inner">
+        <section className="focus-trap-inner">
           { this.props.children }
         </section>
 
@@ -37,4 +43,4 @@ var Dialog = React.createClass({
 
 })
 
-module.exports = Dialog
+module.exports = FocusTrap

@@ -1,10 +1,10 @@
-@keyframes dialog-fade {
+@keyframes modal-fade {
   0%   { opacity: 0; }
   100% { opacity: 1; }
 }
 
-.dialog {
-  animation: 0.4s dialog-fade;
+.focus-trap {
+  animation: 0.4s focus-trap-fade;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -16,8 +16,8 @@
   z-index: 1000;
 }
 
-.dialog-blackout {
-  background: rgba(#000, 0.54);
+.focus-trap-backdrop {
+  background: rgba(0, 0, 0, 0.54);
   height: 100%;
   left: 0;
   position: absolute;
@@ -26,13 +26,13 @@
   z-index: 0;
 }
 
-.dialog-inner {
+.focus-trap-inner {
   background: #fff;
   border-radius: 2px;
   box-shadow: 0 1px 3px rgba(#000, 0.24);
   margin: 0 auto;
   max-height: 100%;
-  max-width: $dialog-width;
+  max-width: 500px;
   position: relative;
   width: 100%;
   z-index: 1;

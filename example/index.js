@@ -5,9 +5,9 @@ var Component = React.createClass({
 
   render() {
     return (
-      <Dialog onExit={}>
+      <Dialog onExit={ this._onExit }>
         <p>Hello!</p>
-      </div>
+      </Dialog>
     );
   },
 

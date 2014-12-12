@@ -2,12 +2,13 @@ var Path    = require('path');
 var WebPack = require('webpack');
 
 module.exports = {
+
   entry: './src/index.js',
 
   output: {
     libraryTarget: 'umd',
     path: Path.resolve(__dirname, 'dist'),
-    filename: 'ink.js'
+    filename: 'focus-trap.js'
   },
 
   externals: {
