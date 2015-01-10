@@ -1,18 +1,18 @@
 var React  = require('react');
-var Dialog = require('../dist/dialog');
+var FocusTrap = require('../dist/focus-trap');
 
 var Component = React.createClass({
 
   render() {
     return (
-      <Dialog onExit={ this._onExit }>
-        <p>Hello!</p>
-      </Dialog>
+      <FocusTrap onExit={ this._onExit }>
+        <h1>Focus will always return to this component</h1>
+      </FocusTrap>
     );
   },
 
   _onExit() {
-    console.log("yep")
+    console.log("exited")
   }
 
 });

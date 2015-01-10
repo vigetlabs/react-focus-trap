@@ -1,5 +1,5 @@
 var Path    = require('path');
-var WebPack = require('webpack');
+var Webpack = require('webpack');
 
 module.exports = {
 
@@ -20,12 +20,18 @@ module.exports = {
     modulesDirectories: [ 'web_modules', 'node_modules' ]
   },
 
+  plugins: [
+    new Webpack.ProvidePlugin({
+      to5Runtime: "imports?global=>{}!exports-loader?global.to5Runtime!6to5/runtime"
+    })
+  ],
+
   module: {
     loaders: [
       {
         test    : /\.jsx*$/,
         exclude : /node_modules/,
-        loader  : 'envify-loader!jsx-loader?harmony=true'
+        loader  : '6to5-loader?experimental&runtime&modules=common',
       },
       {
         test    : /\.json$/,

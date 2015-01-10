@@ -5,7 +5,7 @@
  * when it is unmounted
  */
 
-module.exports = {
+export default {
 
   _pushFocus() {
     this.setState({
@@ -22,32 +22,36 @@ module.exports = {
     }
   },
 
+  _focus() {
+    this.getDOMNode().focus()
+  },
+
   // trap keyboard focus within modal
   // via http://www.nczonline.net/blog/2013/02/12/making-an-accessible-dialog-box/
   _trapFocus() {
-    this._focusTimer = setTimeout(_ => this.getDOMNode().focus(), 10)
+    this._focusTimer = setTimeout(this._focus, 10)
   },
 
-  _clearTrap: function() {
-    clearTimeout(this._focusTimer);
+  _clearTrap() {
+    clearTimeout(this._focusTimer)
   },
 
   componentDidMount() {
-    var el = this.getDOMNode()
+    let el = this.getDOMNode()
 
-    el.addEventListener('focusin', this._clearTrap);
-    el.addEventListener('focusout', this._trapFocus);
+    el.addEventListener('focusin', this._clearTrap)
+    el.addEventListener('focusout', this._trapFocus)
 
     this._pushFocus()
   },
 
   componentWillUnmount() {
-    var el = this.getDOMNode()
+    let el = this.getDOMNode()
 
     this._popFocus()
 
-    el.removeEventListener('focusin', this._clearTrap);
-    el.removeEventListener('focusout', this._trapFocus);
+    el.removeEventListener('focusin', this._clearTrap)
+    el.removeEventListener('focusout', this._trapFocus)
   }
 
 }

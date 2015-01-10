@@ -1,10 +1,9 @@
-/** @jsx */
+import Focus from './mixins/focus'
+import React from 'react'
 
-var Focus = require('./mixins/focus')
-var React = require('react')
-var Types = React.PropTypes
+let Types = React.PropTypes
 
-var FocusTrap = React.createClass({
+let FocusTrap = React.createClass({
 
   mixins: [ Focus ],
 
@@ -20,7 +19,7 @@ var FocusTrap = React.createClass({
   },
 
   render() {
-    var { role } = this.props
+    let { role } = this.props
 
     return (
       <div className="focus-trap" tabIndex="0" role={ role } onKeyUp={ this._onKeyUp }>
@@ -43,4 +42,4 @@ var FocusTrap = React.createClass({
 
 })
 
-module.exports = FocusTrap
+export default FocusTrap

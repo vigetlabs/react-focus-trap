@@ -6,4 +6,4 @@ NODE_ENV=production
 webpack -vcp --optimize-minimize --optimize-occurence-order --optimize-dedupe
 
 echo "gzipped, the global build is:"
-echo "`gzip -c dist/ink.js | wc -c` bytes"
+echo "`gzip -c dist/focus-trap.js | wc -c` bytes"

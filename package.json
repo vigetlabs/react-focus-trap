@@ -4,9 +4,9 @@
   "description": "",
   "main": "dist/focus-trap.js",
   "scripts": {
-    "start" : "webpack -wd",
-    "prepublish" : "./scripts/production",
-    "test": "jest"
+    "start": "webpack -wd",
+    "example": "webpack -wd --config webpack.example.config.js",
+    "prepublish": "./scripts/production"
   },
   "repository": {
     "type": "git",
@@ -15,25 +15,14 @@
   "keywords": [
     "react"
   ],
-  "jest": {
-    "scriptPreprocessor": "<rootDir>/jestPreprocessor.js",
-    "unmockedModulePathPatterns": [
-      "<rootDir>/node_modules/react"
-    ],
-    "globals": {
-      "__DEV__": true
-    }
-  },
   "author": "Nate Hunzaker",
   "license": "MIT",
   "devDependencies": {
-    "envify": "^1.2.1",
-    "envify-loader": "^0.1.0",
-    "jest-cli": "^0.2.1",
-    "jsx-loader": "^0.12.2",
-    "react": "^0.11.0",
-    "react-tools": "^0.12.1",
-    "webpack": "^1.4.13",
+    "6to5": "^2.9.4",
+    "6to5-loader": "^2.0.0",
+    "exports-loader": "^0.6.2",
+    "imports-loader": "^0.6.3",
+    "webpack": "^1.4.15",
     "webpack-dev-server": "^1.6.6"
   },
   "peerDependencies": {
