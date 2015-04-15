@@ -6,7 +6,7 @@ export default React.createClass({
   mixins: [ Focus ],
 
   propTypes: {
-    active : React.PropTypes.boolean,
+    active : React.PropTypes.bool,
     onExit : React.PropTypes.func.isRequired,
     role   : React.PropTypes.string.isRequired
   },
