@@ -1,27 +1,27 @@
 import Focus from './mixins/focus'
 import React from 'react'
 
-let Types = React.PropTypes
-
-let FocusTrap = React.createClass({
+export default React.createClass({
 
   mixins: [ Focus ],
 
   propTypes: {
-    onExit : Types.func.isRequired,
-    role   : Types.string.isRequired
+    active : React.PropTypes.boolean,
+    onExit : React.PropTypes.func.isRequired,
+    role   : React.PropTypes.string.isRequired
   },
 
   getDefaultProps() {
     return {
-      role: "dialog"
+      active : true,
+      role   : "dialog"
     }
   },
 
   render() {
-    let { role } = this.props
+    let { active, role } = this.props
 
-    return (
+    return active ? (
       <div className="focus-trap" tabIndex="0" role={ role } onKeyUp={ this._onKeyUp }>
 
         <div className="focus-trap-backdrop" aria-hidden={ true } onClick={ this.props.onExit }></div>
@@ -31,7 +31,7 @@ let FocusTrap = React.createClass({
         </section>
 
       </div>
-    )
+    ) : null
   },
 
   _onKeyUp(e) {
@@ -41,5 +41,3 @@ let FocusTrap = React.createClass({
   }
 
 })
-
-export default FocusTrap
