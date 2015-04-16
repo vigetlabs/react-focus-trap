@@ -13,9 +13,10 @@ module.exports = React.createClass({
 
   getDefaultProps() {
     return {
-      active  : true,
-      element : 'section',
-      role    : "dialog"
+      active    : true,
+      className : 'focus-trap-inner',
+      element   : 'section',
+      role      : "dialog"
     }
   },
 
@@ -24,8 +25,8 @@ module.exports = React.createClass({
   },
 
   getInner() {
-    let { element, children } = this.props
-    return React.createElement(element, { className: 'focus-trap-inner' }, children)
+    let { className, element, children } = this.props
+    return React.createElement(element, { className }, children)
   },
 
   render() {

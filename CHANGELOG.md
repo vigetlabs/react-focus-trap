@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.3.0
+
+- Add the ability to configure inner container element className with the 'className' property
+
 ## 0.2.0
 
 - Add handling for when element is not defined
