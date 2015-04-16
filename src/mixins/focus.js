@@ -43,9 +43,7 @@ module.exports = {
 
     if (el) {
       el.addEventListener('focusin',  this._clearTrap)
-      el.addEventListener('focus',    this._clearTrap)
       el.addEventListener('focusout', this._trapFocus)
-      el.addEventListener('blur',     this._trapFocus)
     }
 
     this._pushFocus()
@@ -58,9 +56,7 @@ module.exports = {
 
     if (el) {
       el.removeEventListener('focusin',  this._clearTrap)
-      el.removeEventListener('focus',    this._clearTrap)
       el.removeEventListener('focusout', this._trapFocus)
-      el.removeEventListener('blur',     this._trapFocus)
     }
   }
 

@@ -62,6 +62,7 @@ describe('FocusTrap', function() {
     let el = component.getDOMNode()
 
     TestUtils.Simulate.blur(el)
+    el.blur()
 
     setTimeout(function() {
       document.activeElement.should.equal(el)
