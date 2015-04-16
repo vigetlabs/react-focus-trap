@@ -8,11 +8,12 @@ React Focus Trap is a container element that will manage focus for its children
 
 ```javascript
 let Modal = React.createClass({
-
   render() {
-    <FocusTrap onExit={ this._onExit }>
-      Amazing stuff goes here
-    </FocusTrap>
+    return (
+      <FocusTrap onExit={ this._onExit } active={ this.props.active }>
+        Amazing stuff goes here
+      </FocusTrap>
+    )
   }
 })
 ```
