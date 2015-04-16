@@ -4,7 +4,7 @@ module.exports = function(config) {
 
   config.set({
 
-    browsers: [ isIntegration ? 'Firefox' : 'Chrome' ],
+    browsers: [ isIntegration ? 'Chrome' : 'Chrome' ],
 
     singleRun: isIntegration,
 
