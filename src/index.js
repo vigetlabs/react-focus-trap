@@ -13,9 +13,9 @@ module.exports = React.createClass({
 
   getDefaultProps() {
     return {
-      active    : true,
+      active    : false,
       className : 'focus-trap-inner',
-      element   : 'section',
+      element   : 'div',
       role      : "dialog"
     }
   },
