@@ -5,7 +5,7 @@
 
 let React = require('react')
 
-module.exports = React.createClass({
+let Backdrop = React.createClass({
   getDefaultProps() {
     return {
       'aria-hidden' : true,
@@ -19,3 +19,5 @@ module.exports = React.createClass({
     return React.createElement(element, safe)
   }
 })
+
+module.exports = Backdrop

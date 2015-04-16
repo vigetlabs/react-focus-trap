@@ -1,11 +1,11 @@
 var React  = require('react');
-var FocusTrap = require('../dist/focus-trap');
+var FocusTrap = require('../src/FocusTrap');
 
 var Component = React.createClass({
 
   render() {
     return (
-      <FocusTrap onExit={ this._onExit }>
+      <FocusTrap onExit={ this._onExit } active>
         <h1>Focus will always return to this component</h1>
       </FocusTrap>
     );

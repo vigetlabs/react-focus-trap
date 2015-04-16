@@ -3,7 +3,7 @@ let FocalPoint = require('./FocalPoint')
 let Focus      = require('./mixins/focus')
 let React      = require('react')
 
-module.exports = React.createClass({
+let FocusTrap = React.createClass({
   mixins: [ Focus ],
 
   propTypes: {
@@ -37,3 +37,5 @@ module.exports = React.createClass({
     }
   }
 })
+
+module.exports = FocusTrap

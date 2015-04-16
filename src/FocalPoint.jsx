@@ -5,8 +5,7 @@
 
 let React = require('react')
 
-module.exports = React.createClass({
-
+let FocalPoint = React.createClass({
   getDefaultProps() {
     return {
       className : 'focus-trap-inner',
@@ -16,8 +15,8 @@ module.exports = React.createClass({
 
   render() {
     let { children, element, ...safe } = this.props
-
     return React.createElement(element, safe, children)
   }
-
 })
+
+module.exports = FocalPoint
