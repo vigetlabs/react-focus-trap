@@ -16,10 +16,8 @@ module.exports = {
   },
 
   _popFocus() {
-    if (this.state.previousFocus) {
-      this.state.previousFocus.focus()
-      this._clearTrap()
-    }
+    this.state.previousFocus.focus()
+    this._clearTrap()
   },
 
   _focus() {

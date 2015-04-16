@@ -5,6 +5,8 @@
   "main": "dist/focus-trap.js",
   "scripts": {
     "start": "webpack -wd --config webpack.example.config.js",
+    "test": "karma start",
+    "coveralls": "CONTINUOUS_INTEGRATION=true npm test && coveralls < coverage/report-lcov/lcov.info",
     "prepublish": "./scripts/production"
   },
   "repository": {
@@ -17,7 +19,25 @@
   "author": "Nate Hunzaker",
   "license": "MIT",
   "devDependencies": {
+    "babel-core": "^5.x.x",
     "babel-loader": "^5.x.x",
+    "babel-runtime": "^5.1.10",
+    "chai": "^2.2.0",
+    "coveralls": "^2.11.2",
+    "istanbul": "^0.3.5",
+    "istanbul-instrumenter-loader": "^0.1.2",
+    "karma": "^0.12.32",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-cli": "0.0.4",
+    "karma-coverage": "^0.2.7",
+    "karma-firefox-launcher": "^0.1.4",
+    "karma-mocha": "^0.1.10",
+    "karma-nyan-reporter": "0.0.60",
+    "karma-sinon-chai": "^0.3.0",
+    "karma-webpack": "^1.5.0",
+    "mocha": "^2.2.1",
+    "react": ">= 0.12.1",
+    "sinon": "^1.14.1",
     "webpack": "^1.x.x"
   },
   "dependencies": {

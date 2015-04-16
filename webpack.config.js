@@ -2,8 +2,7 @@ var Path    = require('path');
 var Webpack = require('webpack');
 
 module.exports = {
-
-  entry: './src/index.jsx',
+  entry: './src/FocusTrap.jsx',
 
   output: {
     libraryTarget: 'umd',

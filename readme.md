@@ -1,4 +1,11 @@
-# React Focus Trap
+[![NPM](https://nodei.co/npm/react-focus-trap.png?compact=true)](https://npmjs.org/package/react-focus-trap)
+
+---
+
+[![Build Status](https://travis-ci.org/vigetlabs/react-focus-trap.png?branch=master)](https://travis-ci.org/vigetlabs/react-focus-trap)
+[![Coverage Status](https://coveralls.io/repos/vigetlabs/react-focus-trap/badge.svg)](https://coveralls.io/r/vigetlabs/react-focus-trap)
+
+---
 
 A generic focus management tool for components such as dialogs and dropdowns.
 

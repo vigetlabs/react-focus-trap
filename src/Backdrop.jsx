@@ -6,11 +6,6 @@
 let React = require('react')
 
 module.exports = React.createClass({
-
-  propTypes: {
-    onExit : React.PropTypes.func.isRequired
-  },
-
   getDefaultProps() {
     return {
       'aria-hidden' : true,
@@ -21,8 +16,6 @@ module.exports = React.createClass({
 
   render() {
     let { element, ...safe } = this.props
-
     return React.createElement(element, safe)
   }
-
 })
