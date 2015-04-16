@@ -42,8 +42,10 @@ module.exports = {
     let el = this.getDOMNode()
 
     if (el) {
-      el.addEventListener('focusin', this._clearTrap)
+      el.addEventListener('focusin',  this._clearTrap)
+      el.addEventListener('focus',    this._clearTrap)
       el.addEventListener('focusout', this._trapFocus)
+      el.addEventListener('blur',     this._trapFocus)
     }
 
     this._pushFocus()
@@ -55,8 +57,10 @@ module.exports = {
     this._popFocus()
 
     if (el) {
-      el.removeEventListener('focusin', this._clearTrap)
+      el.removeEventListener('focusin',  this._clearTrap)
+      el.removeEventListener('focus',    this._clearTrap)
       el.removeEventListener('focusout', this._trapFocus)
+      el.removeEventListener('blur',     this._trapFocus)
     }
   }
 

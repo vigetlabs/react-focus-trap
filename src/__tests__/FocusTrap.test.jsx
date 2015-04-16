@@ -57,10 +57,11 @@ describe('FocusTrap', function() {
   })
 
   it ('returns focus when it is lost', function(done) {
-    let component = React.render(<FocusTrap onExit={ sinon.mock() } active/>, document.body)
-    let el        = component.getDOMNode()
+    let component = React.render(<FocusTrap onExit={ sinon.mock() } active/>,
+ document.body)
+    let el = component.getDOMNode()
 
-    el.blur()
+    TestUtils.Simulate.blur(el)
 
     setTimeout(function() {
       document.activeElement.should.equal(el)

@@ -1,10 +1,9 @@
 module.exports = function(config) {
-
   var isIntegration = process.env.CONTINUOUS_INTEGRATION === 'true'
 
   config.set({
 
-    browsers: [ isIntegration ? 'Chrome' : 'Chrome' ],
+    browsers: [ isIntegration ? 'Firefox' : 'Chrome' ],
 
     singleRun: isIntegration,
 
@@ -30,7 +29,7 @@ module.exports = function(config) {
     webpack: {
       resolve: {
         extensions: ['', '.js', '.jsx'],
-        modulesDirectories: [ 'web_modules', 'node_modules', __dirname ]
+        modulesDirectories: [ 'web_modules', 'node_modules', __dirname, 'src', 'lib' ]
       },
 
       module: {
