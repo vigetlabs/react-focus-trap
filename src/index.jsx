@@ -1,0 +1,39 @@
+let Backdrop   = require('./Backdrop')
+let FocalPoint = require('./FocalPoint')
+let Focus      = require('./mixins/focus')
+let React      = require('react')
+
+module.exports = React.createClass({
+  mixins: [ Focus ],
+
+  propTypes: {
+    active : React.PropTypes.bool,
+    onExit : React.PropTypes.func.isRequired
+  },
+
+  getDefaultProps() {
+    return {
+      active : false,
+      role   : 'dialog'
+    }
+  },
+
+  render() {
+    let { active, className, children, element, onExit, role } = this.props
+
+    if (!active ) return null
+
+    return (
+      <div className='focus-trap' onKeyUp={ this._onKeyUp } role={ role } tabIndex="0">
+        <Backdrop onClick={ onExit } />
+        <FocalPoint className={ className } element={ element }>{ children }</FocalPoint>
+      </div>
+    )
+  },
+
+  _onKeyUp(e) {
+    if (e.key === 'Escape') {
+      this.props.onExit()
+    }
+  }
+})

@@ -4,7 +4,7 @@ A generic focus management tool for components such as dialogs and dropdowns.
 
 ## Usage
 
-React Focus Trap is a container element that will manage focus for its children
+React Focus Trap is a container element that will manage focus for its children.
 
 ```javascript
 let Modal = React.createClass({

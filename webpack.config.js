@@ -3,7 +3,7 @@ var Webpack = require('webpack');
 
 module.exports = {
 
-  entry: './src/index.js',
+  entry: './src/index.jsx',
 
   output: {
     libraryTarget: 'umd',
