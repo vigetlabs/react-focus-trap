@@ -1,6 +1,6 @@
 {
   "name": "react-focus-trap",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "",
   "main": "dist/focus-trap.js",
   "scripts": {
@@ -21,7 +21,7 @@
     "webpack": "^1.x.x",
     "webpack-dev-server": "^1.x.x"
   },
-  "peerDependencies": {
+  "dependencies": {
     "react": ">= 0.11.x"
   }
 }

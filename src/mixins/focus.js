@@ -5,14 +5,14 @@
  * when it is unmounted
  */
 
-export default {
+module.exports = {
 
   _pushFocus() {
     this.setState({
       previousFocus: document.activeElement
     })
 
-    this.getDOMNode().focus()
+    this._focus()
   },
 
   _popFocus() {
@@ -23,7 +23,11 @@ export default {
   },
 
   _focus() {
-    this.getDOMNode().focus()
+    let el = this.getDOMNode()
+
+    if (el) {
+      el.focus()
+    }
   },
 
   // trap keyboard focus within modal
@@ -39,8 +43,10 @@ export default {
   componentDidMount() {
     let el = this.getDOMNode()
 
-    el.addEventListener('focusin', this._clearTrap)
-    el.addEventListener('focusout', this._trapFocus)
+    if (el) {
+      el.addEventListener('focusin', this._clearTrap)
+      el.addEventListener('focusout', this._trapFocus)
+    }
 
     this._pushFocus()
   },
@@ -50,8 +56,10 @@ export default {
 
     this._popFocus()
 
-    el.removeEventListener('focusin', this._clearTrap)
-    el.removeEventListener('focusout', this._trapFocus)
+    if (el) {
+      el.removeEventListener('focusin', this._clearTrap)
+      el.removeEventListener('focusout', this._trapFocus)
+    }
   }
 
 }

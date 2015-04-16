@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 0.3.0
+
+- Added the ability to set the inner container element using the `element` property
+
+## 0.2.0
+
+- Add handling for when element is not defined
+- Add property to define inner container element
+
 ## 0.1.1
 
 - Addresses invalid `active` PropType.

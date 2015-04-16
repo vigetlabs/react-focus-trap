@@ -1,7 +1,7 @@
-import Focus from './mixins/focus'
-import React from 'react'
+let Focus = require('./mixins/focus')
+let React = require('react')
 
-export default React.createClass({
+module.exports = React.createClass({
 
   mixins: [ Focus ],
 
@@ -13,23 +13,28 @@ export default React.createClass({
 
   getDefaultProps() {
     return {
-      active : true,
-      role   : "dialog"
+      active  : true,
+      element : 'section',
+      role    : "dialog"
     }
+  },
+
+  getBackdrop() {
+    return (<div className="focus-trap-backdrop" aria-hidden={ true } onClick={ this.props.onExit } />)
+  },
+
+  getInner() {
+    let { element, children } = this.props
+    return React.createElement(element, { className: 'focus-trap-inner' }, children)
   },
 
   render() {
     let { active, role } = this.props
 
     return active ? (
-      <div className="focus-trap" tabIndex="0" role={ role } onKeyUp={ this._onKeyUp }>
-
-        <div className="focus-trap-backdrop" aria-hidden={ true } onClick={ this.props.onExit }></div>
-
-        <section className="focus-trap-inner">
-          { this.props.children }
-        </section>
-
+        <div className="focus-trap" tabIndex="0" role={ role } onKeyUp={ this._onKeyUp }>
+        { this.getBackdrop() }
+      { this.getInner() }
       </div>
     ) : null
   },
