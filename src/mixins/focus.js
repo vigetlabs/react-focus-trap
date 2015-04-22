@@ -46,11 +46,13 @@ module.exports = {
   },
 
   _onFocusLeave(event) {
-    let el = this.refs.focus.getDOMNode()
+    if (this.refs.focus) {
+      let el = this.refs.focus.getDOMNode()
 
-    if (el.contains(event.target) === false) {
-      event.preventDefault();
-      this._trapFocus()
+      if (el.contains(event.target) === false) {
+        event.preventDefault();
+        this._trapFocus()
+      }
     }
   }
 
