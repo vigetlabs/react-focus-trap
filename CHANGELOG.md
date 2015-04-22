@@ -1,17 +1,24 @@
 # CHANGELOG
 
+## 0.5.0
+
+- Addresses some issues with screen readers after conducting testing
+  with VoiceOver
+
 ## 0.4.0
 
-- More sensible defaults. See readme.
+- More sensible defaults. See readme
 
 ## 0.3.0
 
-- Add the ability to configure inner container element className with the 'className' property
+- Add the ability to configure inner container element className with
+  the 'className' property
 
 ## 0.2.0
 
 - Add handling for when element is not defined
-- Added the ability to set the inner container element using the `element` property
+- Added the ability to set the inner container element using the
+  `element` property
 
 ## 0.1.1
 

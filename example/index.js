@@ -7,6 +7,10 @@ var Component = React.createClass({
     return (
       <FocusTrap onExit={ this._onExit } active>
         <h1>Focus will always return to this component</h1>
+        <p><a href="#" >Focus one</a></p>
+        <p><a href="#">Focus two</a></p>
+        <p><a href="#">Focus three</a></p>
+        <p><a href="#">Focus four</a></p>
       </FocusTrap>
     );
   },
@@ -17,4 +21,4 @@ var Component = React.createClass({
 
 });
 
-React.render(<Component />, document.body);
+React.render(<Component />, window.app);

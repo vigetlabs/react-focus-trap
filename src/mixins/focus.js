@@ -3,6 +3,7 @@
  *
  * For accessibility, this mixin focuses on mount and returns focus
  * when it is unmounted
+ * http://www.nczonline.net/blog/2013/02/12/making-an-accessible-dialog-box/
  */
 
 module.exports = {
@@ -21,16 +22,12 @@ module.exports = {
   },
 
   _focus() {
-    let el = this.getDOMNode()
-
-    if (el) {
-      el.focus()
+    if (this.refs.focus) {
+      this.refs.focus.getDOMNode().focus()
     }
   },
 
-  // trap keyboard focus within modal
-  // via http://www.nczonline.net/blog/2013/02/12/making-an-accessible-dialog-box/
-  _trapFocus() {
+  _trapFocus(e) {
     this._focusTimer = setTimeout(this._focus, 10)
   },
 
@@ -39,24 +36,21 @@ module.exports = {
   },
 
   componentDidMount() {
-    let el = this.getDOMNode()
-
-    if (el) {
-      el.addEventListener('focusin',  this._clearTrap)
-      el.addEventListener('focusout', this._trapFocus)
-    }
-
+    document.addEventListener('focus', this._onFocusLeave, true)
     this._pushFocus()
   },
 
   componentWillUnmount() {
-    let el = this.getDOMNode()
-
+    document.removeEventListener('focus', this._onFocusLeave, true)
     this._popFocus()
+  },
 
-    if (el) {
-      el.removeEventListener('focusin',  this._clearTrap)
-      el.removeEventListener('focusout', this._trapFocus)
+  _onFocusLeave(event) {
+    let el = this.refs.focus.getDOMNode()
+
+    if (el.contains(event.target) === false) {
+      event.preventDefault();
+      this._trapFocus()
     }
   }
 

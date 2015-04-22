@@ -9,7 +9,8 @@ let FocalPoint = React.createClass({
   getDefaultProps() {
     return {
       className : 'focus-trap-inner',
-      element   : 'div'
+      element   : 'div',
+      tabIndex  : '0'
     }
   },
 

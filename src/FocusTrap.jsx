@@ -24,9 +24,9 @@ let FocusTrap = React.createClass({
     if (!active ) return null
 
     return (
-      <div className='focus-trap' onKeyUp={ this._onKeyUp } role={ role } tabIndex="0">
+      <div className='focus-trap' onKeyUp={ this._onKeyUp } role={ role } tabIndex="-1">
         <Backdrop onClick={ onExit } />
-        <FocalPoint className={ className } element={ element }>{ children }</FocalPoint>
+        <FocalPoint ref='focus' className={ className } element={ element }>{ children }</FocalPoint>
       </div>
     )
   },
