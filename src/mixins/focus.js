@@ -8,6 +8,10 @@
 
 module.exports = {
 
+  _hasElement() {
+    return !!(this.refs.focus && this.refs.focus.getDOMNode())
+  },
+
   _pushFocus() {
     this.setState({
       previousFocus: document.activeElement
@@ -22,7 +26,7 @@ module.exports = {
   },
 
   _focus() {
-    if (this.refs.focus) {
+    if (this._hasElement()) {
       this.refs.focus.getDOMNode().focus()
     }
   },
@@ -46,7 +50,7 @@ module.exports = {
   },
 
   _onFocusLeave(event) {
-    if (this.refs.focus) {
+    if (this._hasElement()) {
       let el = this.refs.focus.getDOMNode()
 
       if (el.contains(event.target) === false) {
