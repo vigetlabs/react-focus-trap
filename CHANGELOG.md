@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.6.0
+
+- **Breaking change**: Update the way class names are built. They will
+  now be based upon the className provided to the `<FocusTrap />`
+
 ## 0.5.0
 
 - Addresses some issues with screen readers after conducting testing

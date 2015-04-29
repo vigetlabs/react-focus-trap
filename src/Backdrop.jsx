@@ -9,7 +9,6 @@ let Backdrop = React.createClass({
   getDefaultProps() {
     return {
       'aria-hidden' : true,
-      'className'   : 'focus-trap-backdrop',
       'element'     : 'div'
     }
   },

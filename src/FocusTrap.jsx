@@ -13,8 +13,9 @@ let FocusTrap = React.createClass({
 
   getDefaultProps() {
     return {
-      active : false,
-      role   : 'dialog'
+      active    : false,
+      className : 'focus-trap',
+      role      : 'dialog'
     }
   },
 
@@ -24,9 +25,11 @@ let FocusTrap = React.createClass({
     if (!active ) return null
 
     return (
-      <div className='focus-trap' onKeyUp={ this._onKeyUp } role={ role } tabIndex="-1">
-        <Backdrop onClick={ onExit } />
-        <FocalPoint ref='focus' className={ className } element={ element }>{ children }</FocalPoint>
+      <div className={ `${ className }-wrapper` } onKeyUp={ this._onKeyUp } role={ role }>
+        <Backdrop className={ `${ className }-backdrop` } onClick={ onExit } />
+        <FocalPoint ref='focus' className={ className } element={ element }>
+          { children }
+        </FocalPoint>
       </div>
     )
   },
