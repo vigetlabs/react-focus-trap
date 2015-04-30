@@ -5,6 +5,7 @@
 
 let React = require('react')
 let stack = [ document.activeElement ]
+let timer = null
 
 let FocalPoint = React.createClass({
 
@@ -24,19 +25,15 @@ let FocalPoint = React.createClass({
   },
 
   trapFocus(e) {
-    this._focusTimer = setTimeout(_ => stack[stack.length - 1].focus(), 10)
-  },
-
-  clearTrap() {
-    clearTimeout(this._focusTimer)
+    clearTimeout(timer)
+    timer = setTimeout(_ => stack[stack.length - 1].focus(), 10)
   },
 
   componentDidMount() {
     stack.push(this)
 
     this.setState({ anchor: document.activeElement })
-
-    this.focus()
+    this.trapFocus()
 
     document.addEventListener('focus', this._onBlur, true)
   },
@@ -46,6 +43,7 @@ let FocalPoint = React.createClass({
 
     document.removeEventListener('focus', this._onBlur, true)
 
+    clearTimeout(timer)
     this.state.anchor.focus()
   },
 

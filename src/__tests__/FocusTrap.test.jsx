@@ -60,12 +60,14 @@ describe('FocusTrap', function() {
     let component = React.render(<FocusTrap onExit={ sinon.mock() } active/>, document.body)
     let el = component.refs.focus.getDOMNode()
 
-    TestUtils.Simulate.blur(el)
+    component.refs.focus._onBlur({
+      preventDefault: sinon.mock(),
+      target: document.body
+    })
 
     setTimeout(function() {
       document.activeElement.should.equal(el)
       done()
     }, 50)
   })
-
 })
