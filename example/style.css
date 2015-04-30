@@ -12,8 +12,13 @@
   left: 0;
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 50%;
   z-index: 1000;
+}
+
+.focus-trap-wrapper:last-child {
+  left: auto;
+  right: 0;
 }
 
 .focus-trap-backdrop {
@@ -36,4 +41,12 @@
   position: relative;
   width: 100%;
   z-index: 1;
+
+  &:focus {
+    outline: 10px solid red;
+  }
+}
+
+button:focus {
+  outline: 10px solid red;
 }

@@ -36,8 +36,8 @@ describe('FocusTrap', function() {
       }
     })
 
+    let previous = document.activeElement
     let component = render(<Component />)
-    let previous  = component.refs.focus.state.previousFocus
 
     component.setState({ active: false })
     document.activeElement.should.equal(previous)

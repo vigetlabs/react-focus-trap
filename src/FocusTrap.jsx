@@ -1,10 +1,8 @@
 let Backdrop   = require('./Backdrop')
 let FocalPoint = require('./FocalPoint')
-let Focus      = require('./mixins/focus')
 let React      = require('react')
 
 let FocusTrap = React.createClass({
-  mixins: [ Focus ],
 
   propTypes: {
     active : React.PropTypes.bool,
