@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.6.1
+
+- Fixes cases when more than one FocusTrap is activated
+
 ## 0.6.0
 
 - **Breaking change**: Update the way class names are built. They will
