@@ -1,5 +1,5 @@
-var React  = require('react');
-var FocusTrap = require('../src/FocusTrap');
+var React  = require('react')
+var FocusTrap = require('../src/FocusTrap')
 
 var Component = React.createClass({
 
@@ -26,7 +26,7 @@ var Component = React.createClass({
           <p><a href="http://google.com">Focus two</a></p>
         </FocusTrap>
       </div>
-    );
+    )
   },
 
   _onOpenOne() {
@@ -45,6 +45,6 @@ var Component = React.createClass({
     this.setState({ focusTwo: false })
   }
 
-});
+})
 
-React.render(<Component />, window.app);
+React.render(<Component />, window.app)
