@@ -8,22 +8,20 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['', '.js', '.jsx', '.json'],
-    modulesDirectories: [ 'web_modules', 'node_modules', 'src', 'lib' ]
+    extensions: ['', '.js', '.jsx'],
+    modulesDirectories: [ 'web_modules', 'node_modules', 'src', 'lib', __dirname ]
   },
 
   module: {
-    loaders: [
-      {
-        test    : /\.jsx*$/,
-        exclude : /node_modules/,
-        loader  : 'babel-loader',
-        query   : {
-          stage : 1,
-          loose : true,
-          optional : [ 'runtime' ]
-        }
+    loaders: [{
+      test    : /\.jsx*$/,
+      exclude : /node_modules/,
+      loader  : 'babel-loader',
+      query   : {
+        stage : 1,
+        loose : true,
+        optional : [ 'runtime' ]
       }
-    ]
+    }]
   }
 }

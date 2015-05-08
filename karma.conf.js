@@ -26,7 +26,7 @@ module.exports = function(config) {
     },
 
     webpack: {
-      loaders : webpackConfig.resolve,
+      resolve : webpackConfig.resolve,
       module  : {
         loaders: webpackConfig.module.loaders,
         postLoaders: [{
