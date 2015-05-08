@@ -5,7 +5,7 @@
   "main": "src/FocusTrap.js",
   "scripts": {
     "start": "make example",
-    "test": "karma start",
+    "test": "make test",
     "prepublish": "make build"
   },
   "repository": {
