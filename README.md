@@ -37,7 +37,7 @@ When Focus Trap is active, it will do several things:
 | Name       | Default               | Description                                           |
 | ---------- | --------------------- | ----------------------------------------------------- |
 | active     | `false`               | Should the FocusTrap render?                          |
-| className  | `'focus-trap-inner'`  | The class of the inner container that maintains focus |
+| className  | `'focus-trap`         | The class of the inner container that maintains focus |
 | onExit     | `null (but required)` | Callback when escape or an outside click occurs       |
 | element    | `'div'`               | The tag name of the inner container                   |
 | role       | `'dialog'`            | The aria role for the inner container                 |
