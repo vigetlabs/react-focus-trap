@@ -2,8 +2,7 @@
 
 ---
 
-[![Build Status](https://travis-ci.org/vigetlabs/react-focus-trap.png?branch=master)](https://travis-ci.org/vigetlabs/react-focus-trap)
-[![Coverage Status](https://coveralls.io/repos/vigetlabs/react-focus-trap/badge.svg)](https://coveralls.io/r/vigetlabs/react-focus-trap)
+[![Circle CI](https://circleci.com/gh/vigetlabs/react-focus-trap.svg?style=svg)](https://circleci.com/gh/vigetlabs/react-focus-trap)
 
 ---
 

@@ -6,8 +6,7 @@
   "scripts": {
     "start": "make example",
     "test": "karma start",
-    "coveralls": "make test-coverage",
-    "prepublish": "make release"
+    "prepublish": "make build"
   },
   "repository": {
     "type": "git",
