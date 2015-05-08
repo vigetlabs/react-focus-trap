@@ -4,7 +4,7 @@ module.exports = function(config) {
 
   config.set({
 
-    browsers: [ 'Firefox', 'Chrome' ],
+    browsers: [ 'Chrome' ],
 
     frameworks: [ 'mocha', 'sinon-chai' ],
 
@@ -12,7 +12,7 @@ module.exports = function(config) {
       'src/__tests__/*.js*'
     ],
 
-    reporters: [ 'nyan', 'coverage' ],
+    reporters: [ 'spec', 'coverage' ],
 
     preprocessors: {
       'src/__tests__/*.js*': [ 'webpack' ]
