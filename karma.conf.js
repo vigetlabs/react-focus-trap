@@ -1,11 +1,10 @@
+var webpackConfig = require('./webpack.config')
+
 module.exports = function(config) {
-  var isIntegration = process.env.CONTINUOUS_INTEGRATION === 'true'
 
   config.set({
 
-    browsers: [ 'Firefox' ],
-
-    singleRun: isIntegration,
+    browsers: [ 'Firefox', 'Chrome' ],
 
     frameworks: [ 'mocha', 'sinon-chai' ],
 
@@ -27,31 +26,14 @@ module.exports = function(config) {
     },
 
     webpack: {
-      resolve: {
-        extensions: ['', '.js', '.jsx'],
-        modulesDirectories: [ 'web_modules', 'node_modules', __dirname, 'src', 'lib' ]
-      },
-
-      module: {
-        loaders: [
-          {
-            test    : /\.jsx*$/,
-            exclude : /node_modules/,
-            loader  : 'babel',
-            query   : {
-              stage    : 1,
-              loose    : true,
-              optional : [ 'runtime' ]
-            }
-          }
-        ],
-        postLoaders: [
-          {
-            test: /\.jsx*$/,
-            exclude: /(__tests__|node_modules)\//,
-            loader: 'istanbul-instrumenter'
-          }
-        ]
+      loaders : webpackConfig.resolve,
+      module  : {
+        loaders: webpackConfig.module.loaders,
+        postLoaders: [{
+          test: /\.jsx*$/,
+          exclude: /(__tests__|node_modules)\//,
+          loader: 'istanbul-instrumenter'
+        }]
       }
     },
 

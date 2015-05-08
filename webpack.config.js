@@ -1,17 +1,10 @@
-var Path    = require('path');
-var Webpack = require('webpack');
-
 module.exports = {
-  entry: './src/FocusTrap.jsx',
+  entry: './example/index.jsx',
 
   output: {
-    libraryTarget: 'umd',
-    path: Path.resolve(__dirname, 'dist'),
-    filename: 'focus-trap.js'
-  },
-
-  externals: {
-    'react': 'react'
+    path: './example',
+    publicPath: './example',
+    filename: 'example.build.js'
   },
 
   resolve: {
@@ -27,12 +20,9 @@ module.exports = {
         loader  : 'babel-loader',
         query   : {
           stage : 1,
-          loose : true
+          loose : true,
+          optional : [ 'runtime' ]
         }
-      },
-      {
-        test    : /\.json$/,
-        loader  : 'json-loader'
       }
     ]
   }

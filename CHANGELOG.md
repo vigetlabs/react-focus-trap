@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.7.0
+
+- Updated build process
+
 ## 0.6.1
 
 - Fixes cases when more than one FocusTrap is activated

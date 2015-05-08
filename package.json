@@ -2,33 +2,35 @@
   "name": "react-focus-trap",
   "version": "0.6.1",
   "description": "",
-  "main": "dist/focus-trap.js",
+  "main": "src/FocusTrap.js",
   "scripts": {
-    "start": "webpack -wd --config webpack.example.config.js",
+    "start": "make example",
     "test": "karma start",
-    "coveralls": "CONTINUOUS_INTEGRATION=true npm test && coveralls < coverage/report-lcov/lcov.info",
-    "prepublish": "./scripts/production"
+    "coveralls": "make test-coverage",
+    "prepublish": "make release"
   },
   "repository": {
     "type": "git",
     "url": "git@github.com:vigetlabs/react-focus-trap.git"
   },
   "keywords": [
-    "react"
+    "react",
+    "a11y"
   ],
   "author": "Nate Hunzaker",
   "license": "MIT",
   "devDependencies": {
+    "babel": "^5.2.17",
     "babel-core": "^5.x.x",
     "babel-loader": "^5.x.x",
     "babel-runtime": "^5.1.10",
     "chai": "^2.2.0",
     "coveralls": "^2.11.2",
-    "istanbul": "^0.3.5",
     "istanbul-instrumenter-loader": "^0.1.2",
     "karma": "^0.12.32",
     "karma-cli": "0.0.4",
     "karma-coverage": "^0.2.7",
+    "karma-chrome-launcher": "^0.1.8",
     "karma-firefox-launcher": "^0.1.4",
     "karma-mocha": "^0.1.10",
     "karma-nyan-reporter": "0.0.60",
