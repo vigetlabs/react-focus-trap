@@ -17,7 +17,7 @@ javascript: $(shell find src -name '*.js*' ! -name '*.test.js*')
 	$(BABEL) -d dist $^
 
 package.json:
-	node -p 'p=require("./package");p.scripts=p.devDependencies=undefined;JSON.stringify(p,null,2)' > dist/package.json
+	node -p 'p=require("./package");p.private=undefined;p.scripts=p.devDependencies=undefined;JSON.stringify(p,null,2)' > dist/package.json
 
 documentation: README.md LICENSE.md
 	mkdir -p dist
