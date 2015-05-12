@@ -1,6 +1,6 @@
 {
   "name": "react-focus-trap",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Traps focus for accessible dropdowns and modal content.",
   "main": "src/FocusTrap.js",
   "scripts": {
