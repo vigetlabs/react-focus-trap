@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.8.0
+
+- Updated dependencies
+
 ## 0.7.0
 
 - Updated build process
