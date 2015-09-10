@@ -8,17 +8,19 @@ describe('FocusTrap', function() {
   let stub  = () => {}
 
   it ('does not render when not active', function() {
-    let component = render(<FocusTrap onExit={ stub } active={ false } />)
+    let component = render(<FocusTrap active={ false } />)
     assert.equal(component.getDOMNode(), null)
   })
 
   describe('when a key is pressed', function() {
 
     it ('triggers to exit when the key is escape', function(done) {
-      let onExit = function() {
-        done()
-      }
-      let component = render(<FocusTrap onExit={ onExit } active />)
+      let component = render(<FocusTrap onExit={ done } />)
+      TestUtils.Simulate.keyUp(component.getDOMNode(), { key: 'Escape' })
+    })
+
+    it ('does not throw an error if there is no callback', function() {
+      let component = render(<FocusTrap />)
       TestUtils.Simulate.keyUp(component.getDOMNode(), { key: 'Escape' })
     })
 
@@ -26,7 +28,7 @@ describe('FocusTrap', function() {
       let onExit = function() {
         throw new Error("Exit should not have been called")
       }
-      let component = render(<FocusTrap onExit={ onExit } active />)
+      let component = render(<FocusTrap onExit={ onExit } />)
       TestUtils.Simulate.keyUp(component.getDOMNode(), { key: 'Space' })
     })
   })
@@ -37,7 +39,7 @@ describe('FocusTrap', function() {
         return { active: true }
       },
       render() {
-        return this.state.active ? (<FocusTrap onExit={ stub } active ref="focus"/>) : null
+        return this.state.active ? (<FocusTrap ref="focus"/>) : null
       }
     })
 
@@ -54,7 +56,7 @@ describe('FocusTrap', function() {
         return { active: true }
       },
       render() {
-        return this.state.active ? (<FocusTrap onExit={ stub } ref="focus"/>) : null
+        return this.state.active ? (<FocusTrap ref="focus"/>) : null
       }
     })
 
@@ -62,7 +64,7 @@ describe('FocusTrap', function() {
   })
 
   it ('returns focus when it is lost', function(done) {
-    let component = React.render(<FocusTrap onExit={ stub } active/>, document.body)
+    let component = React.render(<FocusTrap />, document.body)
     let el = component.refs.focus.getDOMNode()
 
     component.refs.focus._onBlur({

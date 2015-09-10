@@ -33,7 +33,7 @@ let FocusTrap = React.createClass({
   },
 
   _onKeyUp(e) {
-    if (e.key === 'Escape') {
+    if (e.key === 'Escape' && 'onExit' in this.props) {
       this.props.onExit()
     }
   }
