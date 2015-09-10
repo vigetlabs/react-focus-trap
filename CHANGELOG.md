@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.0.1
+
+- Fixes a case where the onExit callback was invoked without it being defined
+
 ## 1.0.0
 
 - react-focus-trap is now active by default. This component is used in
