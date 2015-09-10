@@ -6,12 +6,12 @@ let FocusTrap = React.createClass({
 
   propTypes: {
     active : React.PropTypes.bool,
-    onExit : React.PropTypes.func.isRequired
+    onExit : React.PropTypes.func
   },
 
   getDefaultProps() {
     return {
-      active    : false,
+      active    : true,
       className : 'focus-trap',
       role      : 'dialog'
     }

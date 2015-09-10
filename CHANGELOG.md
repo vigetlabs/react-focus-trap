@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## 1.0.0
+
+- react-focus-trap is now active by default. This component is used in
+  many settings where it is not a modal. In the case of modals,
+  `active` is typically assigned as a dynamic prop anyway.
+- The `onExit` property is no longer required.
+
+### Upgrading
+
+`active` is now true by default. Please verify that this does not
+conflict with your configuration settings (although our experience has
+shown this never to be the case).
+
 ## 0.8.0
 
 - Updated dependencies

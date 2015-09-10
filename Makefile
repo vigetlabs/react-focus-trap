@@ -1,8 +1,5 @@
-NPM_BIN   = $$(npm bin)
-BABEL     = $(NPM_BIN)/babel
-COVERALLS = $(NPM_BIN)/coveralls
-KARMA     = $(NPM_BIN)/karma
-WEBPACK   = $(NPM_BIN)/webpack
+SHELL  := /bin/bash
+PATH   := ./node_modules/.bin:$(PATH)
 
 .PHONY: clean test test-coverage build package.json javascript release example documentation
 
@@ -14,7 +11,7 @@ build:
 
 javascript: $(shell find src -name '*.js*' ! -name '*.test.js*')
 	mkdir -p dist
-	$(BABEL) -d dist $^
+	babel -d dist $^
 
 package.json:
 	node -p 'p=require("./package");p.private=undefined;p.scripts=p.devDependencies=undefined;JSON.stringify(p,null,2)' > dist/package.json
@@ -29,17 +26,17 @@ release:
 
 example:
 	open example/index.html
-	$(WEBPACK) -wd
+	webpack -wd
 
 clean:
 	rm -rf dist
 
 test:
-	NODE_ENV=test $(KARMA) start --single-run
+	NODE_ENV=test karma start --single-run
 
 test-watch:
-	NODE_ENV=test $(KARMA) start
+	NODE_ENV=test karma start
 
 test-coverage:
 	make test
-	$(COVERALLS) < coverage/report-lcov/lcov.info
+	coveralls < coverage/report-lcov/lcov.info
