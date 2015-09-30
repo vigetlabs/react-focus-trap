@@ -90,7 +90,7 @@ describe('FocusTrap', function() {
 
     let component = render(<Component />)
 
-    component.refs.focus.setState({ anchor: false })
+    component.refs.focus.setState({ anchor: null })
     component.setState({ active: false })
   })
 
