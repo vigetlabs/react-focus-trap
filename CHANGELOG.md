@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.0.2
+
+- Fixed case where anchor was lost transitioning between two pages
+  with focus traps via hash URL routing.
+
 ## 1.0.1
 
 - Fixes a case where the onExit callback was invoked without it being defined
