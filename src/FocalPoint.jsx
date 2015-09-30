@@ -29,6 +29,15 @@ let FocalPoint = React.createClass({
     timer = setTimeout(_ => stack[stack.length - 1].focus(), 10)
   },
 
+  returnFocus() {
+    // When transitioning between pages using hash route state,
+    // this anchor is some times lost. Do not attempt to focus
+    // on a non-existent anchor.
+    if (this.state.anchor != null && 'focus' in this.state.anchor) {
+      this.state.anchor.focus()
+    }
+  },
+
   componentDidMount() {
     stack.push(this)
 
@@ -44,7 +53,8 @@ let FocalPoint = React.createClass({
     document.removeEventListener('focus', this._onBlur, true)
 
     clearTimeout(timer)
-    this.state.anchor.focus()
+
+    this.returnFocus()
   },
 
   render() {
