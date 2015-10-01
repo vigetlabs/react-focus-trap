@@ -35,7 +35,7 @@ let FocalPoint = React.createClass({
     // When transitioning between pages using hash route state,
     // this anchor is some times lost. Do not attempt to focus
     // on a non-existent anchor.
-    if (anchor === 'object' && 'focus' in anchor) {
+    if (anchor === 'object' && typeof anchor.focus === 'function') {
       anchor.focus()
     }
   },
