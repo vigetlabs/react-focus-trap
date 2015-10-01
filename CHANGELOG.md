@@ -2,6 +2,12 @@
 
 ## 1.0.2
 
+- The previous fix for focusing a nully anchor introduced a new bug:
+  it would not focus on the anchor. This version changes the way
+  the `focus` method is identified to fix this bug.
+
+## 1.0.2
+
 - Fixed case where anchor was lost transitioning between two pages
   with focus traps via hash URL routing.
 
