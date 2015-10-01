@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 1.0.2
+## 1.0.3
 
 - The previous fix for focusing a nully anchor introduced a new bug:
   it would not focus on the anchor. This version changes the way
