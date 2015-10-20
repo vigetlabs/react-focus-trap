@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 1.1.0
+
+- Add conditional around `document` access to allow isomorphic rendering
+- Bump dependency list to allow for React 0.14. This will still expose
+  warnings in the console about deprecation warnings, however it
+  should unblock 0.14 development in the meantime.
+
 ## 1.0.3
 
 - The previous fix for focusing a nully anchor introduced a new bug:

@@ -4,8 +4,16 @@
  */
 
 let React = require('react')
-let stack = [ document.activeElement ]
+let stack = []
 let timer = null
+
+/**
+ * To support server-side rendering, do not push the active element
+ * when not in the browser environment
+ */
+if (typeof document !== 'undefined' && document.activeElement) {
+  stack.push(document.activeElement)
+}
 
 let FocalPoint = React.createClass({
 

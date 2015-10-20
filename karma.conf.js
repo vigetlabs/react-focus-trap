@@ -9,13 +9,13 @@ module.exports = function(config) {
     frameworks: [ 'mocha' ],
 
     files: [
-      'src/__tests__/*.js*'
+      'test/*.js*'
     ],
 
     reporters: [ 'spec', 'coverage' ],
 
     preprocessors: {
-      'src/__tests__/*.js*': [ 'webpack' ]
+      'test/*.js*': [ 'webpack' ]
     },
 
     coverageReporter: {
@@ -31,7 +31,7 @@ module.exports = function(config) {
         loaders: webpackConfig.module.loaders,
         postLoaders: [{
           test: /\.jsx*$/,
-          exclude: /(__tests__|node_modules)\//,
+          exclude: /(test|node_modules)\//,
           loader: 'istanbul-instrumenter'
         }]
       }
