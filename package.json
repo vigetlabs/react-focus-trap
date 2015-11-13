@@ -35,10 +35,12 @@
     "karma-spec-reporter": "~0",
     "karma-webpack": "~1",
     "mocha": "~2",
-    "react": "~0.13",
+    "react": "~0.14",
+    "react-dom": "~0.14",
     "webpack": "~1"
   },
-  "dependencies": {
-    "react": ">= 0.11"
+  "peerDependencies": {
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0"
   }
 }

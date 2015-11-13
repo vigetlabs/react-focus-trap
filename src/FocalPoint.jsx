@@ -4,6 +4,7 @@
  */
 
 let React = require('react')
+let DOM   = require('react-dom')
 let stack = []
 let timer = null
 
@@ -25,11 +26,11 @@ let FocalPoint = React.createClass({
   },
 
   contains(element) {
-    return this.getDOMNode().contains(element)
+    return DOM.findDOMNode(this).contains(element)
   },
 
   focus() {
-    this.getDOMNode().focus()
+    DOM.findDOMNode(this).focus()
   },
 
   trapFocus(e) {

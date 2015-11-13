@@ -1,4 +1,5 @@
 var React  = require('react')
+var DOM = require('react-dom')
 var FocusTrap = require('../src/FocusTrap')
 
 var Component = React.createClass({
@@ -47,4 +48,4 @@ var Component = React.createClass({
 
 })
 
-React.render(<Component />, window.app)
+DOM.render(<Component />, window.app)
