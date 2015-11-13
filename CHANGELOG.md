@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 2.0.0
+
+- **Important Update**: This update makes breaking changes to support
+  React 0.14. This is because react-focus-trap depends on
+  `React.findDOMNode`. Version 1.0 will continue to receive support
+  for versions of React before 0.14.0.
+
 ## 1.1.1
 
 - Fix conditional that would prevent return of focus
