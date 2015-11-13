@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.1.1
+
+- Fix conditional that would prevent return of focus
+
 ## 1.1.0
 
 - Add conditional around `document` access to allow isomorphic rendering
