@@ -1,27 +1,28 @@
 import FocusTrap from '../src/FocusTrap'
-import React     from 'react/addons'
+import React     from 'react'
+import DOM       from 'react-dom'
 import assert    from 'assert'
+import TestUtils from 'react-addons-test-utils'
 
 describe('FocusTrap', function() {
-  let TestUtils = React.addons.TestUtils
   let render    = TestUtils.renderIntoDocument
   let stub  = () => {}
 
   it ('does not render when not active', function() {
     let component = render(<FocusTrap active={ false } />)
-    assert.equal(component.getDOMNode(), null)
+      assert.equal(DOM.findDOMNode(component), null)
   })
 
   describe('when a key is pressed', function() {
 
     it ('triggers to exit when the key is escape', function(done) {
       let component = render(<FocusTrap onExit={ done } />)
-      TestUtils.Simulate.keyUp(component.getDOMNode(), { key: 'Escape' })
+        TestUtils.Simulate.keyUp(DOM.findDOMNode(component), { key: 'Escape' })
     })
 
     it ('does not throw an error if there is no callback', function() {
       let component = render(<FocusTrap />)
-      TestUtils.Simulate.keyUp(component.getDOMNode(), { key: 'Escape' })
+      TestUtils.Simulate.keyUp(DOM.findDOMNode(component), { key: 'Escape' })
     })
 
     it ('otherwise does nothing', function() {
@@ -29,7 +30,7 @@ describe('FocusTrap', function() {
         throw new Error("Exit should not have been called")
       }
       let component = render(<FocusTrap onExit={ onExit } />)
-      TestUtils.Simulate.keyUp(component.getDOMNode(), { key: 'Space' })
+      TestUtils.Simulate.keyUp(DOM.findDOMNode(component), { key: 'Space' })
     })
   })
 
@@ -64,8 +65,8 @@ describe('FocusTrap', function() {
   })
 
   it ('returns focus when it is lost', function(done) {
-    let component = React.render(<FocusTrap />, document.body)
-    let el = component.refs.focus.getDOMNode()
+    let component = DOM.render(<FocusTrap />, document.body)
+    let el = DOM.findDOMNode(component.refs.focus)
 
     component.refs.focus._onBlur({
       preventDefault: stub,
