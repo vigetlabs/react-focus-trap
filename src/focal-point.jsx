@@ -80,7 +80,7 @@ let FocalPoint = React.createClass({
   _onBlur(event) {
     let current = stack[stack.length - 1]
 
-    if (current.contains(event.target) === false) {
+    if (current && current.contains(event.target) === false) {
       event.preventDefault();
       this.trapFocus()
     }
