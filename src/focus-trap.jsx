@@ -1,5 +1,4 @@
-let Backdrop   = require('./Backdrop')
-let FocalPoint = require('./FocalPoint')
+let FocalPoint = require('./focal-point')
 let React      = require('react')
 
 let FocusTrap = React.createClass({
@@ -24,7 +23,7 @@ let FocusTrap = React.createClass({
 
     return (
       <div className={ `${ className }-wrapper` } onKeyUp={ this._onKeyUp } role={ role }>
-        <Backdrop className={ `${ className }-backdrop` } onClick={ onExit } />
+        <div aria-hidden="true" className={ `${ className }-backdrop` } onClick={ onExit } />
         <FocalPoint ref='focus' className={ className } element={ element }>
           { children }
         </FocalPoint>

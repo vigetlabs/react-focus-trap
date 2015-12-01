@@ -1,4 +1,4 @@
-import FocusTrap from '../src/FocusTrap'
+import FocusTrap from '../src/focus-trap'
 import React     from 'react'
 import DOM       from 'react-dom'
 import assert    from 'assert'

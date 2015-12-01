@@ -1,6 +1,6 @@
 var React  = require('react')
 var DOM = require('react-dom')
-var FocusTrap = require('../src/FocusTrap')
+var FocusTrap = require('../src/focus-trap')
 
 var Component = React.createClass({
 

@@ -12,7 +12,7 @@ module.exports = function(config) {
       'test/*.js*'
     ],
 
-    reporters: [ 'spec', 'coverage' ],
+    reporters: [ 'progress', 'coverage' ],
 
     preprocessors: {
       'test/*.js*': [ 'webpack' ]

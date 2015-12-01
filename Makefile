@@ -1,13 +1,9 @@
-SHELL  := /bin/bash
-PATH   := ./node_modules/.bin:$(PATH)
+SHELL := /bin/bash
+PATH  := ./node_modules/.bin:$(PATH)
 
 .PHONY: clean test test-coverage build package.json javascript release example documentation
 
-build:
-	make clean
-	make javascript
-	make package.json
-	make documentation
+all: clean javascript package.json documentation
 
 javascript: $(shell find src -name '*.js*' ! -name '*.test.js*')
 	mkdir -p dist
@@ -20,8 +16,7 @@ documentation: README.md LICENSE.md
 	mkdir -p dist
 	cp -r $^ dist
 
-release:
-	make build
+release: all
 	npm publish dist
 
 example:
@@ -37,6 +32,5 @@ test:
 test-watch:
 	NODE_ENV=test karma start
 
-test-coverage:
-	make test
+test-coverage: test
 	coveralls < coverage/report-lcov/lcov.info

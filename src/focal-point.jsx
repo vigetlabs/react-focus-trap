@@ -4,7 +4,6 @@
  */
 
 let React = require('react')
-let DOM   = require('react-dom')
 let stack = []
 let timer = null
 
@@ -26,11 +25,11 @@ let FocalPoint = React.createClass({
   },
 
   contains(element) {
-    return DOM.findDOMNode(this).contains(element)
+    return this.refs.root.contains(element)
   },
 
   focus() {
-    DOM.findDOMNode(this).focus()
+    return this.refs.root.focus()
   },
 
   trapFocus(e) {
@@ -69,8 +68,13 @@ let FocalPoint = React.createClass({
   },
 
   render() {
-    let { children, element, ...safe } = this.props
-    return React.createElement(element, safe, children)
+    let { children, element:Element, ...safe } = this.props
+
+    return (
+      <Element ref="root" { ...safe }>
+        { children }
+      </Element>
+    )
   },
 
   _onBlur(event) {
