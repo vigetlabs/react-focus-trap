@@ -18,13 +18,6 @@ module.exports = function(config) {
       'test/*.js*': [ 'webpack' ]
     },
 
-    coverageReporter: {
-      reporters: [
-        { type: 'html', subdir: 'report-html' },
-        { type: 'lcov', subdir: 'report-lcov' }
-      ]
-    },
-
     webpack: {
       resolve : webpackConfig.resolve,
       module  : {

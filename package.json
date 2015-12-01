@@ -23,7 +23,6 @@
     "babel": "~5",
     "babel-core": "~5",
     "babel-loader": "~5",
-    "coveralls": "~2",
     "istanbul": "~0.4",
     "istanbul-instrumenter-loader": "~0.1",
     "karma": "~> 0.13.8",

@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 PATH  := ./node_modules/.bin:$(PATH)
 
-.PHONY: clean test test-coverage build package.json javascript release example documentation
+.PHONY: clean test test-watch build package.json javascript release example documentation
 
 all: clean javascript package.json documentation
 
@@ -31,6 +31,3 @@ test:
 
 test-watch:
 	NODE_ENV=test karma start
-
-test-coverage: test
-	coveralls < coverage/report-lcov/lcov.info
