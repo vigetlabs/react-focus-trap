@@ -30,7 +30,7 @@ When Focus Trap is active, it will do several things:
 
 1. Ensure focus remains on its content
 2. Exits when clicks outside of the container occur
-3. Exists when the escape key is pressed
+3. Exits when the escape key is pressed
 
 ## Props
 
