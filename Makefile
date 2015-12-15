@@ -19,6 +19,10 @@ documentation: README.md LICENSE.md
 release: all
 	npm publish dist
 
+release-support:
+	make build
+	npm publish dist --tag support
+
 example:
 	open example/index.html
 	webpack -wd

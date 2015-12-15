@@ -95,4 +95,11 @@ describe('FocusTrap', function() {
     component.setState({ active: false })
   })
 
+  it ('handles null anchor points', function() {
+    let component = render(<FocusTrap />)
+    let trap = component.refs.focus
+
+    trap.setState({ anchor: null })
+    component.refs.focus.returnFocus()
+  })
 })
