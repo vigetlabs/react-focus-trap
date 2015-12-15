@@ -1,7 +1,8 @@
 # CHANGELOG
 
-## 2.0.1
+## 2.1.0
 
+- Refactor internals to eliminate some weight
 - Adds additional check to prevent `focus()` from being called on null
   anchors
 
