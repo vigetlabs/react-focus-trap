@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.1.2
+
+- Add an additional check when returning focus to prevent
+  calling `focus()` on `null`.
+
 ## 1.1.1
 
 - Fix conditional that would prevent return of focus
