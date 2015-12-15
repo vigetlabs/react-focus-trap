@@ -24,6 +24,10 @@ release:
 	make build
 	npm publish dist
 
+release-support:
+	make build
+	npm publish dist --tag support
+
 example:
 	open example/index.html
 	webpack -wd
