@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2.0.1
+
+- Adds additional check to prevent `focus()` from being called on null
+  anchors
+
 ## 2.0.0
 
 - **Important Update**: This update makes breaking changes to support
