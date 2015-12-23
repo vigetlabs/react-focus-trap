@@ -41,3 +41,11 @@ When Focus Trap is active, it will do several things:
 | onExit     | `null`                | Callback when escape or an outside click occurs       |
 | element    | `'div'`               | The tag name of the inner container                   |
 | role       | `'dialog'`            | The aria role for the inner container                 |
+
+***
+
+<a href="http://code.viget.com">
+  <img src="http://code.viget.com/github-banner.png" alt="Code At Viget">
+</a>
+
+Visit [code.viget.com](http://code.viget.com) to see more projects from [Viget.](https://viget.com)
