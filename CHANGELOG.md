@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.2.0
+
+- Added looser `react` peer dependency declaration
+
 ## 2.1.0
 
 - Refactor internals to eliminate some weight
