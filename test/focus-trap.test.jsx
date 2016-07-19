@@ -79,27 +79,4 @@ describe('FocusTrap', function() {
     }, 50)
   })
 
-  it ('does not focus a null anchor when unmounting', function() {
-    let Component = React.createClass({
-      getInitialState() {
-        return { active: true }
-      },
-      render() {
-        return this.state.active ? (<FocusTrap ref="focus"/>) : null
-      }
-    })
-
-    let component = render(<Component />)
-
-    component.refs.focus.setState({ anchor: null })
-    component.setState({ active: false })
-  })
-
-  it ('handles null anchor points', function() {
-    let component = render(<FocusTrap />)
-    let trap = component.refs.focus
-
-    trap.setState({ anchor: null })
-    component.refs.focus.returnFocus()
-  })
 })

@@ -19,8 +19,7 @@ let FocalPoint = React.createClass({
 
   getDefaultProps() {
     return {
-      element   : 'div',
-      tabIndex  : '0'
+      element : 'div'
     }
   },
 
@@ -33,25 +32,15 @@ let FocalPoint = React.createClass({
   },
 
   trapFocus(e) {
+    let el = stack[stack.length - 1]
+
     clearTimeout(timer)
-    timer = setTimeout(_ => stack[stack.length - 1].focus(), 10)
-  },
-
-  returnFocus() {
-    let { anchor } = this.state
-
-    // When transitioning between pages using hash route state,
-    // this anchor is some times lost. Do not attempt to focus
-    // on a non-existent anchor.
-    if (anchor && typeof anchor === 'object' && typeof anchor.focus === 'function') {
-      anchor.focus()
-    }
+    timer = setTimeout(el.focus, 0)
   },
 
   componentDidMount() {
     stack.push(this)
 
-    this.setState({ anchor: document.activeElement })
     this.trapFocus()
 
     document.addEventListener('focus', this._onBlur, true)
@@ -62,16 +51,14 @@ let FocalPoint = React.createClass({
 
     document.removeEventListener('focus', this._onBlur, true)
 
-    clearTimeout(timer)
-
-    this.returnFocus()
+    this.trapFocus()
   },
 
   render() {
-    let { children, element:Element, ...safe } = this.props
+    let { children, element:Element, className } = this.props
 
     return (
-      <Element ref="root" { ...safe }>
+      <Element ref="root" tabIndex="0" className={ className }>
         { children }
       </Element>
     )

@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.3.0
+
+- Removed "role" attribute from container. Otherwise, screen readers will read this as "Navigation. One item", since there's only one immediate readable child.
+
 ## 2.2.0
 
 - Added looser `react` peer dependency declaration
