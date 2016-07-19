@@ -19,7 +19,8 @@ module.exports = function (config) {
     },
 
     webpack: {
-      resolve : webpackConfig.resolve
+      resolve : webpackConfig.resolve,
+      module  : webpackConfig.module
     },
 
     webpackServer: {

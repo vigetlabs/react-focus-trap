@@ -10,7 +10,7 @@ describe('FocusTrap', function() {
 
   it ('does not render when not active', function() {
     let component = render(<FocusTrap active={ false } />)
-      assert.equal(DOM.findDOMNode(component), null)
+    assert.equal(DOM.findDOMNode(component), null)
   })
 
   describe('when a key is pressed', function() {
