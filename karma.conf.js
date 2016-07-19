@@ -1,6 +1,6 @@
 var webpackConfig = require('./webpack.config')
 
-module.exports = function(config) {
+module.exports = function (config) {
 
   config.set({
 
@@ -12,22 +12,14 @@ module.exports = function(config) {
       'test/*.js*'
     ],
 
-    reporters: [ 'progress', 'coverage' ],
+    reporters: [ 'progress' ],
 
     preprocessors: {
       'test/*.js*': [ 'webpack' ]
     },
 
     webpack: {
-      resolve : webpackConfig.resolve,
-      module  : {
-        loaders: webpackConfig.module.loaders,
-        postLoaders: [{
-          test: /\.jsx*$/,
-          exclude: /(test|node_modules)\//,
-          loader: 'istanbul-instrumenter'
-        }]
-      }
+      resolve : webpackConfig.resolve
     },
 
     webpackServer: {

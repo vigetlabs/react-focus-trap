@@ -30,8 +30,8 @@ example:
 clean:
 	rm -rf dist
 
-test:
-	NODE_ENV=test karma start --single-run
+lint:
+	@ eslint {src,test}/**/*.{js,jsx}
 
-test-watch:
-	NODE_ENV=test karma start
+test: lint
+	NODE_ENV=test karma start --single-run

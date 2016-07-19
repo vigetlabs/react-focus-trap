@@ -8,8 +8,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['', '.js', '.jsx'],
-    modulesDirectories: [ 'web_modules', 'node_modules', 'src', 'lib', __dirname ]
+    extensions: ['', '.js', '.jsx']
   },
 
   module: {
