@@ -1,9 +1,9 @@
 SHELL := /bin/bash
 PATH  := ./node_modules/.bin:$(PATH)
 
-.PHONY: clean test test-watch build package.json javascript release example documentation
+.PHONY: clean test test-watch package.json javascript release example documentation
 
-all: clean javascript package.json documentation
+all: javascript package.json documentation
 
 javascript: $(shell find src -name '*.js*' ! -name '*.test.js*')
 	mkdir -p dist
@@ -16,11 +16,10 @@ documentation: README.md LICENSE.md
 	mkdir -p dist
 	cp -r $^ dist
 
-release: all
+release: clean all
 	npm publish dist
 
-release-support:
-	make build
+release-support: clean all
 	npm publish dist --tag support
 
 example:
