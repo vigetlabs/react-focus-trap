@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.3.1
+
+- Fix case of missing focus if no element can be found
+
 ## 2.3.0
 
 - Removed "role" attribute from container. Otherwise, screen readers
