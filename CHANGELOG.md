@@ -2,7 +2,10 @@
 
 ## 2.3.0
 
-- Removed "role" attribute from container. Otherwise, screen readers will read this as "Navigation. One item", since there's only one immediate readable child.
+- Removed "role" attribute from container. Otherwise, screen readers
+  will read this as "Navigation. One item", since there's only one
+  immediate readable child.
+- Fixed deprecation warnings with React 15.x
 
 ## 2.2.0
 
