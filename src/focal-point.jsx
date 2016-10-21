@@ -28,9 +28,9 @@ let FocalPoint = React.createClass({
   },
 
   focus() {
-    /* if (this.contains(document.activeElement) === false) {*/
+    if (this.contains(document.activeElement) === false) {
       this.refs.root.focus()
-    /* }*/
+    }
   },
 
   trapFocus(e) {

@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.3.3
+
+- Bad release. Properly addresses autofocus.
+
 ## 2.3.2
 
 - Do not trap focus if the current active element is inside the
