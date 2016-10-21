@@ -23,6 +23,9 @@ var Component = React.createClass({
         </FocusTrap>
         <FocusTrap onExit={ this._onExitTwo } active={ this.state.focusTwo }>
           <h1>This is the secondary dialog</h1>
+
+          <input type="text" placeholder="This should autofocus" autoFocus />
+
           <p><a href="http://google.com">Focus one</a></p>
           <p><a href="http://google.com">Focus two</a></p>
         </FocusTrap>

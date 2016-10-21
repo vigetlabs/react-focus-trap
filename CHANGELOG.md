@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2.3.2
+
+- Do not trap focus if the current active element is inside the
+  container. This resolves issues with the autofocus attribute.
+
 ## 2.3.1
 
 - Fix case of missing focus if no element can be found

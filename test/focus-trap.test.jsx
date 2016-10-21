@@ -79,4 +79,17 @@ describe('FocusTrap', function() {
     }, 50)
   })
 
+  it ('respects autofocus on a child element', function(done) {
+    DOM.render((
+      <FocusTrap>
+        <input id="test" autoFocus />
+      </FocusTrap>
+    ), document.body)
+
+    setTimeout(function() {
+      assert.equal(document.activeElement.id, 'test')
+      done()
+    }, 50)
+  })
+
 })
