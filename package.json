@@ -33,9 +33,9 @@
     "karma-mocha": "1.1.1",
     "karma-webpack": "~1",
     "mocha": "2.5.3",
-    "react": "~15.0.0",
-    "react-addons-test-utils": "~15.0.0",
-    "react-dom": "~15.0.0",
+    "react": "^15.5.4",
+    "react-addons-test-utils": "^15.5.1",
+    "react-dom": "^15.5.4",
     "webpack": "~1.13.1"
   }
 }
