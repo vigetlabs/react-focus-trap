@@ -1,5 +1,10 @@
 # CHANGELOG
 
+# 2.4.0
+
+- Switch to class React form to avoid deprecations
+- Remove proptypes to avoid deprecations
+
 ## 2.3.3
 
 - Bad release. Properly addresses autofocus.
