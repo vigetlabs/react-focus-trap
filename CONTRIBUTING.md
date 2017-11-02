@@ -2,71 +2,60 @@
 
 Thanks you for considering a contribution to FocusTrap!
 
-FocusTrap is built using tools written for
-[nodejs](http://nodejs.org). We recommend installing Node with
-[nvm](https://github.com/creationix/nvm). this also means that
-dependencies are managed with an [`npm`](https://npmjs.org) `package.json`
-file.
+## Before Starting
 
-You can install dependencies with:
+FocusTrap is built using tools written for [nodejs](http://nodejs.org). We recommend installing Node with [nvm](https://github.com/creationix/nvm). Dependencies are managed through `package.json`.
+
+You use the same node version we are developing with by running
 
 ```bash
-npm install
+nvm use
 ```
+
+> You may need to run `nvm install` if you haven't installed the node version we require.
+
+## Getting Started
+
+All commands should be run using yarn. If you haven't switched to [yarn](https://yarnpkg.com/en/) yet, now's a great time!
+
+> If you are familiar with npm then using yarn should be a breeze. You can keep using npm if you'd prefer but you will miss out on the safety and security of yarn
 
 ## Running
 
 A production build can be built by running:
 
 ```bash
-npm run prepublish
+yarn build
 ```
 
-However most of the time developing with FocusTrap, you will want
-to reference the example app:
+However most of the time developing with FocusTrap, you will want to work from the example app. Boot that up with:
 
 ```bash
-npm start
+yarn start
 ```
 
-This will host the demo at `http://localhost:8080`.
+This will host a local development server at `http://localhost:8080`.
 
 ## Testing
 
-FocusTrap uses [Karma](https://karma-runner.github.io). You can run tests
-with:
+FocusTrap uses [Karma](https://karma-runner.github.io). You can run tests with:
 
 ```bash
-npm test
+yarn test
 ```
 
-Be sure to check the `./coverage` folder to verify all code paths are
-touched.
+## Prettier
 
-## Conventions
+We use [prettier](https://github.com/prettier/prettier) to ensure consistent style across all packages. Automated tests continually check that code formatting is consistent, failing the build if it is not. Make sure this doesn't happen by running:
 
-**Consider master unsafe**, use [`npm`](https://www.npmjs.com/package/microcosm) for the latest stable version.
-
-### Javascript
-
-FocusTrap uses ES6 Javascript (compiled using [Babel](babeljs.io)). As
-for style, shoot for:
-
-- No semicolons
-- Commas last,
-- 2 spaces for indentation (no tabs)
-- Prefer ' over ", use string interpolation
-- 80 character line length
+```bash
+yarn format
+```
 
 ### Testing
 
-Additionally, we aspire for 100% code coverage. However 100% code
-coverage is not a foolproof indicator of good testing. Tests that
-cover as much surface area as possible (for the sake of coverage)
-should be avoided. This is a much softer measure than a style guide,
-and will fall to code review for enforcement.
+Additionally, we aspire for 100% code coverage. However 100% code coverage is not a foolproof indicator of good testing. Tests that cover as much surface area as possible (for the sake of coverage) should be avoided. This is a much softer measure than a style guide, and will fall to code review for enforcement.
 
 ### Reviews
 
-All changes should be submitted through pull request. Ideally, at
-least two :+1:s should be given before a pull request is merge.
+All changes should be submitted through pull request. Ideally, at least two :+1:s should be given before a pull request is merge.
