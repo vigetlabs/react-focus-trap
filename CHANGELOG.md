@@ -1,5 +1,9 @@
 # CHANGELOG
 
+# 2.5.0
+
+- Modernization. Ensure support for React 16.
+
 # 2.4.0
 
 - Switch to class React form to avoid deprecations
