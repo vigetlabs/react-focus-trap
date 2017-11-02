@@ -3,7 +3,8 @@
  * The container that will maintain focus
  */
 
-let React = require('react')
+import React from 'react'
+
 let stack = []
 let timer = null
 
@@ -15,18 +16,25 @@ if (typeof document !== 'undefined' && document.activeElement) {
   stack.push(document.activeElement)
 }
 
+const defaultProps = {
+  element: 'div'
+}
+
 class FocalPoint extends React.Component {
-  static defaultProps = {
-    element: 'div'
+  constructor(props, context) {
+    super(props, context)
+
+    this._onBlur = this._onBlur.bind(this)
+    this._setRoot = this._setRoot.bind(this)
   }
 
   contains(element) {
-    return this.refs.root.contains(element)
+    return this.root.contains(element)
   }
 
   focus() {
     if (this.contains(document.activeElement) === false) {
-      this.refs.root.focus()
+      this.root.focus()
     }
   }
 
@@ -42,7 +50,9 @@ class FocalPoint extends React.Component {
     // this anchor is some times lost. Do not attempt to focus
     // on a non-existent anchor.
     if (
-      anchor && typeof anchor === 'object' && typeof anchor.focus === 'function'
+      anchor &&
+      typeof anchor === 'object' &&
+      typeof anchor.focus === 'function'
     ) {
       anchor.focus()
     }
@@ -76,13 +86,19 @@ class FocalPoint extends React.Component {
     let { children, element: Element, className } = this.props
 
     return (
-      <Element ref="root" tabIndex="0" className={className}>
+      <Element ref={this._setRoot} tabIndex="0" className={className}>
         {children}
       </Element>
     )
   }
 
-  _onBlur = event => {
+  // Private -------------------------------------------------- //
+
+  _setRoot(el) {
+    this.root = el
+  }
+
+  _onBlur(event) {
     let current = stack[stack.length - 1]
 
     if (current && current.contains(event.target) === false) {
@@ -92,4 +108,6 @@ class FocalPoint extends React.Component {
   }
 }
 
-module.exports = FocalPoint
+FocalPoint.defaultProps = defaultProps
+
+export default FocalPoint

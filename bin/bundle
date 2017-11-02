@@ -1,0 +1,31 @@
+#!/usr/bin/env node
+
+'use strict'
+
+const rollup = require('rollup')
+const buble = require('rollup-plugin-buble')
+const path = require('path')
+
+let bundler = rollup.rollup({
+  input: path.resolve(__dirname, '../src/focus-trap'),
+  plugins: [
+    buble()
+  ],
+  external: ['react', 'react-dom'],
+  onwarn: function(error) {
+    // Do not raise warnings for named exports
+    if (error.code !== 'MIXED_EXPORTS') {
+      console.warn(error.toString())
+    }
+  }
+})
+
+let write = bundler.then(bundle => {
+  return bundle.write({
+    file: './dist/index.js',
+    format: 'cjs',
+    sourcemap: true
+  })
+})
+
+write.catch(error => console.error(error.toString()))

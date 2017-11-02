@@ -1,30 +1,23 @@
-var webpackConfig = require('./webpack.config')
+const webpackConfig = require('./webpack.config')
 
-module.exports = function (config) {
-
+module.exports = function(config) {
   config.set({
+    hostname: '0.0.0.0',
 
-    browsers: [ 'Chrome' ],
+    browsers: ['Chrome'],
 
-    frameworks: [ 'mocha' ],
+    frameworks: ['mocha'],
 
-    files: [
-      'test/*.js*'
-    ],
+    files: ['test/*.js*'],
 
-    reporters: [ 'progress' ],
+    reporters: ['progress'],
 
     preprocessors: {
-      'test/*.js*': [ 'webpack' ]
+      'test/*.js*': ['webpack']
     },
 
     webpack: {
-      resolve : webpackConfig.resolve,
-      module  : webpackConfig.module
-    },
-
-    webpackServer: {
-      noInfo: true
+      module: webpackConfig.module
     }
   })
 }

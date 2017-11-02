@@ -1,21 +1,23 @@
+const path = require('path')
+
 module.exports = {
   entry: './example/index.js',
-
+  devtool: 'sourcemap',
   output: {
-    path: './example',
-    publicPath: './example',
-    filename: 'example.build.js'
+    path: path.resolve(__dirname, 'example', 'public')
   },
-
-  resolve: {
-    extensions: ['', '.js', '.jsx']
-  },
-
   module: {
-    loaders: [{
-      test    : /\.jsx*$/,
-      exclude : /node_modules/,
-      loader  : 'babel'
-    }]
+    loaders: [
+      {
+        test: /\.jsx*$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
+      }
+    ]
+  },
+  devServer: {
+    contentBase: path.resolve(__dirname, 'example', 'public'),
+    compress: true,
+    noInfo: true
   }
 }

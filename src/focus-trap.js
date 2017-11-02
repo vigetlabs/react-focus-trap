@@ -1,10 +1,17 @@
-let FocalPoint = require('./focal-point')
-let React = require('react')
+import React from 'react'
+import FocalPoint from './focal-point'
+
+const defaultProps = {
+  active: true,
+  className: 'focus-trap'
+}
 
 class FocusTrap extends React.Component {
-  static defaultProps = {
-    active: true,
-    className: 'focus-trap'
+  constructor(props, context) {
+    super(props, context)
+
+    this._onKeyUp = this._onKeyUp.bind(this)
+    this._setFocus = this._setFocus.bind(this)
   }
 
   render() {
@@ -19,18 +26,26 @@ class FocusTrap extends React.Component {
           className={`${className}-backdrop`}
           onClick={onExit}
         />
-        <FocalPoint ref="focus" className={className} element={element}>
+        <FocalPoint ref={this._setFocus} className={className} element={element}>
           {children}
         </FocalPoint>
       </div>
     )
   }
 
-  _onKeyUp = event => {
+  // Private -------------------------------------------------- //
+
+  _setFocus(el) {
+    this.focus = el
+  }
+
+  _onKeyUp(event) {
     if (event.key === 'Escape' && 'onExit' in this.props) {
       this.props.onExit()
     }
   }
 }
 
-module.exports = FocusTrap
+FocusTrap.defaultProps = defaultProps
+
+export default FocusTrap

@@ -1,8 +1,14 @@
 {
   "presets": [
-    "es2015",
+    [
+      "env",
+      {
+        "useBuiltIns": false,
+        "loose": true,
+        "modules": false
+      }
+    ],
     "react",
     "stage-2"
-  ],
-  "sourceMaps": "inline"
+  ]
 }
