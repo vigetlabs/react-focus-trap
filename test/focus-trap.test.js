@@ -64,7 +64,10 @@ describe('FocusTrap', function() {
   })
 
   it('returns focus when it is lost', function(done) {
-    let component = DOM.render(<FocusTrap />, document.body)
+    let component = DOM.render(
+      <FocusTrap className="focus-trap" />,
+      document.body
+    )
     let el = DOM.findDOMNode(component).querySelector('.focus-trap')
 
     document.body.dispatchEvent(new Event('blur'))
