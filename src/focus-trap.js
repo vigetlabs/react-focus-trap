@@ -3,15 +3,14 @@ import FocalPoint from './focal-point'
 
 const defaultProps = {
   active: true,
-  className: 'focus-trap'
+  className: 'focus-trap',
+  onExit: () => {}
 }
 
 class FocusTrap extends React.Component {
   constructor(props, context) {
     super(props, context)
-
     this._onKeyUp = this._onKeyUp.bind(this)
-    this._setFocus = this._setFocus.bind(this)
   }
 
   render() {
@@ -26,7 +25,7 @@ class FocusTrap extends React.Component {
           className={`${className}-backdrop`}
           onClick={onExit}
         />
-        <FocalPoint ref={this._setFocus} className={className} element={element}>
+        <FocalPoint className={className} element={element}>
           {children}
         </FocalPoint>
       </div>
@@ -35,12 +34,8 @@ class FocusTrap extends React.Component {
 
   // Private -------------------------------------------------- //
 
-  _setFocus(el) {
-    this.focus = el
-  }
-
   _onKeyUp(event) {
-    if (event.key === 'Escape' && 'onExit' in this.props) {
+    if (event.key === 'Escape') {
       this.props.onExit()
     }
   }
