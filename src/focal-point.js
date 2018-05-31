@@ -5,16 +5,8 @@
 
 import React from 'react'
 
-let stack = []
 let timer = null
-
-/**
- * To support server-side rendering, do not push the active element
- * when not in the browser environment
- */
-if (typeof document !== 'undefined' && document.activeElement) {
-  stack.push(document.activeElement)
-}
+let isDOM = typeof document !== 'undefined'
 
 const defaultProps = {
   element: 'div'
@@ -24,6 +16,9 @@ class FocalPoint extends React.Component {
   constructor(props, context) {
     super(props, context)
 
+    this.anchor = null
+
+    this.focus = this.focus.bind(this)
     this._onBlur = this._onBlur.bind(this)
     this._setRoot = this._setRoot.bind(this)
   }
@@ -40,56 +35,53 @@ class FocalPoint extends React.Component {
 
   trapFocus(e) {
     clearTimeout(timer)
-    timer = setTimeout(_ => stack[stack.length - 1].focus(), 10)
+    timer = setTimeout(this.focus, 10)
   }
 
   returnFocus() {
-    let { anchor } = this.state
-
     // When transitioning between pages using hash route state,
     // this anchor is some times lost. Do not attempt to focus
     // on a non-existent anchor.
     if (
-      anchor &&
-      typeof anchor === 'object' &&
-      typeof anchor.focus === 'function'
+      this.anchor &&
+      typeof this.anchor === 'object' &&
+      typeof this.anchor.focus === 'function'
     ) {
-      anchor.focus()
+      this.anchor.focus()
     }
   }
 
   componentWillMount() {
-    if (typeof document !== 'undefined') {
-      this.setState({ anchor: document.activeElement })
+    if (isDOM) {
+      this.anchor = document.activeElement
     }
   }
 
   componentDidMount() {
-    stack.push(this)
-
     this.trapFocus()
 
     document.addEventListener('focus', this._onBlur, true)
   }
 
   componentWillUnmount() {
-    stack = stack.filter(i => i !== this)
-
     document.removeEventListener('focus', this._onBlur, true)
 
     clearTimeout(timer)
 
     this.returnFocus()
+
+    this.anchor = null
   }
 
   render() {
-    let { children, element: Element, className } = this.props
+    let { children, element, className } = this.props
 
-    return (
-      <Element ref={this._setRoot} tabIndex="0" className={className}>
-        {children}
-      </Element>
-    )
+    return React.createElement(element, {
+      ref: this._setRoot,
+      tabIndex: 0,
+      className,
+      children
+    })
   }
 
   // Private -------------------------------------------------- //
@@ -99,7 +91,7 @@ class FocalPoint extends React.Component {
   }
 
   _onBlur(event) {
-    let current = stack[stack.length - 1]
+    let current = this.anchor
 
     if (current && current.contains(event.target) === false) {
       event.preventDefault()

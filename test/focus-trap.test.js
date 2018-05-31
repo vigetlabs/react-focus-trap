@@ -65,12 +65,9 @@ describe('FocusTrap', function() {
 
   it('returns focus when it is lost', function(done) {
     let component = DOM.render(<FocusTrap />, document.body)
-    let el = DOM.findDOMNode(component.focus)
+    let el = DOM.findDOMNode(component).querySelector('.focus-trap')
 
-    component.focus._onBlur({
-      preventDefault: stub,
-      target: document.body
-    })
+    document.body.dispatchEvent(new Event('blur'))
 
     setTimeout(function() {
       assert.equal(document.activeElement, el)
