@@ -1,4 +1,4 @@
 dist
-example/example.build.js
-example/example.build.js.map
+example/public/bundle.js
+example/public/bundle.js.map
 coverage
