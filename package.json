@@ -6,7 +6,7 @@
   "main": "src/focus-trap.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "build:example": "webpack",
+    "build:example": "webpack -p",
     "build": "make all",
     "test": "NODE_ENV=test karma start --single-run",
     "format": "./bin/format",
