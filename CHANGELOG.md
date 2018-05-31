@@ -1,5 +1,9 @@
 # CHANGELOG
 
+# 2.6.0
+
+- Eliminate internal focus stack, avoiding a memory leak
+
 # 2.5.0
 
 - Modernization. Ensure support for React 16.
