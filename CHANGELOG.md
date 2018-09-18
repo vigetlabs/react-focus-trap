@@ -1,5 +1,9 @@
 # CHANGELOG
 
+# 2.7.0
+
+- Add TypeScript declarations
+
 # 2.6.0
 
 - Eliminate internal focus stack, avoiding a memory leak
