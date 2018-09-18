@@ -3,6 +3,7 @@
 # 2.7.0
 
 - Add TypeScript declarations
+- Remove incorrect production dependency
 
 # 2.6.0
 
