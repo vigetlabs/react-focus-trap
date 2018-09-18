@@ -2,3 +2,4 @@ dist
 example/public/bundle.js
 example/public/bundle.js.map
 coverage
+node_modules

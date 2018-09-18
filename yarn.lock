@@ -2,6 +2,19 @@
 # yarn lockfile v1
 
 
+"@types/prop-types@*":
+  version "15.5.5"
+  resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.5.5.tgz#17038dd322c2325f5da650a94d5f9974943625e3"
+  dependencies:
+    "@types/react" "*"
+
+"@types/react@*", "@types/react@^16.4.14":
+  version "16.4.14"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.4.14.tgz#47c604c8e46ed674bbdf4aabf82b34b9041c6a04"
+  dependencies:
+    "@types/prop-types" "*"
+    csstype "^2.2.0"
+
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
@@ -1522,6 +1535,10 @@ crypto-browserify@^3.11.0:
     pbkdf2 "^3.0.3"
     public-encrypt "^4.0.0"
     randombytes "^2.0.0"
+
+csstype@^2.2.0:
+  version "2.5.7"
+  resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.5.7.tgz#bf9235d5872141eccfb2d16d82993c6b149179ff"
 
 currently-unhandled@^0.4.1:
   version "0.4.1"
