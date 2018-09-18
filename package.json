@@ -27,6 +27,7 @@
   "author": "Nate Hunzaker",
   "license": "MIT",
   "devDependencies": {
+    "@types/react": "^16.4.14",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-eslint": "^8.0.0",
