@@ -34,7 +34,7 @@
     "babel-loader": "^7.0.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-2": "^6.24.1",
-    "babel-preset-react": "^6.24.1"
+    "babel-preset-react": "^6.24.1",
     "eslint": "^4.10.0",
     "eslint-plugin-react": "^7.4.0",
     "karma": "^1.7.0",
