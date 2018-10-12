@@ -9,6 +9,7 @@ package.json:
 documentation: README.md LICENSE.md
 	@ mkdir -p dist
 	@ cp -r $^ dist
+	@ cp index.d.ts dist/
 
 release: clean all
 	@ npm publish dist

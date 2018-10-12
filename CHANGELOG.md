@@ -1,5 +1,9 @@
 # CHANGELOG
 
+# 2.7.1
+
+- The deploy process didn't copy over type definitions
+
 # 2.7.0
 
 - Add TypeScript declarations
