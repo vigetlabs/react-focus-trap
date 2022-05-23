@@ -1,5 +1,9 @@
 # CHANGELOG
 
+# 2.7.2
+
+- Use `index.js` for main, fix "Invalid 'main' field" deprecation notice.
+
 # 2.7.1
 
 - The deploy process didn't copy over type definitions
